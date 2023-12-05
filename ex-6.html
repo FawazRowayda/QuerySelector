@@ -1,0 +1,50 @@
+<!--
+ In this exercise, when the "Update Tasks" button is clicked,
+  it uses querySelectorAll to select all list items with the class "item" and the data-category "task."
+   It then iterates over these items and updates their content by appending 
+ "Updated Task: " to the existing content.
+-->
+
+<html>
+<head>
+
+    <title>Exercise 4</title>
+</head>
+<body>
+    <ul>
+        <li class="item" data-type="task">Become a millionre</li>
+        <li class="item" data-type="done">Finish ex.5</li>
+        <li class="item" data-type="task">Study for finals</li>
+        <li class="item" data-type="done">Wake up at 6 AM </li>
+        <li class="item" data-type="done">Get a coffee</li>      
+        <li class="item" data-type="task">Finish work</li>
+        <li class="item" data-type="task">Get an A</li>
+        <li class="item" data-type="done">Order a pizza</li>
+      </ul>
+      <button id="transformButton" value="transform">Update Tasks</button>
+</body>
+<script>
+    var but = document.getElementById('transformButton');
+    but.addEventListener("click", transform);
+     function transform(){
+     var list = document.querySelectorAll(".item");
+    list.forEach(update);
+     }
+    function update(element){
+        var type = element.getAttribute('data-type');
+        if(type =="task"){
+            var text = element.textContent;
+            element.textContent = "Updated Task: "+text;
+            element.style.color = "red";
+            element.style.background = "yellow";
+        }   
+        else if(type =="done"){
+            element.style.color = "green";
+            element.style.background = "lime";
+        }
+        else{
+            element.textContent = "Undefined";
+        }
+    }
+</script>
+</html>

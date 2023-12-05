@@ -1,0 +1,44 @@
+<!--
+    In this modification,
+    a button with the id "transformButton" is added to the HTML structure.
+    The JavaScript code then selects this button using getElementById and adds a click event listener.
+    When the button is clicked,
+    it triggers the content transformation 
+    for the list items using querySelectorAll and forEach.
+-->
+
+<html>
+<head>
+
+    <title>Exercise 4</title>
+</head>
+<body>
+    <ul>
+        <li class="item" data-type="text">Hello</li>
+        <li class="item" data-type="image">Nature</li>
+        <li class="item" data-type="text">World</li>
+        <li class="item" data-type="image">City</li>
+      </ul>
+      <button id="transformButton" value="transform">Transform</button>
+</body>
+<script>
+    var but = document.getElementById('transformButton');
+    but.addEventListener("click", transform);
+     function transform(){
+     var list = document.querySelectorAll(".item");
+    list.forEach(update);
+     }
+    function update(element){
+        var type = element.getAttribute('data-type');
+        if(type =="text"){
+            element.textContent = "Text"; 
+        }   
+        else if(type =="image"){
+            element.textContent = "Image";
+        }
+        else{
+            element.textContent = "Undefined"
+        }
+    }
+</script>
+</html>

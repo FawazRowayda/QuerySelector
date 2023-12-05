@@ -1,0 +1,45 @@
+<!--
+    change the style of list items by directly updating their style properties 
+    (e.g., changing the font color),
+     you can modify the JavaScript code accordingly. 
+-->
+
+<html>
+<head>
+
+    <title>Exercise 4</title>
+</head>
+<body>
+    <ul>
+        <li class="item" data-type="text">Hello</li>
+        <li class="item" data-type="image">Nature</li>
+        <li class="item" data-type="text">World</li>
+        <li class="item" data-type="image">City</li>
+      </ul>
+      <button id="transformButton" value="transform">Transform</button>
+</body>
+<script>
+    var but = document.getElementById('transformButton');
+    but.addEventListener("click", transform);
+     function transform(){
+     var list = document.querySelectorAll(".item");
+    list.forEach(update);
+     }
+    function update(element){
+        var type = element.getAttribute('data-type');
+        if(type =="text"){
+            element.textContent = "Text"; 
+            element.style.color = "red";
+            element.style.background = "yellow";
+        }   
+        else if(type =="image"){
+            element.textContent = "Image";
+            element.style.color = "yellow";
+            element.style.background = "red";
+        }
+        else{
+            element.textContent = "Undefined"
+        }
+    }
+</script>
+</html>
